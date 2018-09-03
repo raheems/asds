@@ -8,6 +8,14 @@
 *.yml
 *.ttf
 *.cls
+*.aux
+*.log
+*.out
+*.toc
+*.sty
+*.bib
+*.clo
+
 _publish.R
 _bookdown_files
 rsconnect
