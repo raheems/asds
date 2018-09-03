@@ -6,7 +6,6 @@
 *.md
 *.tex
 *.yml
-*.ttf
 *.cls
 *.aux
 *.log
