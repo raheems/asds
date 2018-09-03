@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ফলিত পরিসংখ‍‍্যান ও ডেটা সায়েন্স</title>
+  <meta name="description" content="ফলিত পরিসংখ‍‍্যান ও ডেটা সায়েন্স">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="ফলিত পরিসংখ‍‍্যান ও ডেটা সায়েন্স" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="ফলিত পরিসংখ‍‍্যান ও ডেটা সায়েন্স" />
+  <meta name="github-repo" content="raheems/asds" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ফলিত পরিসংখ‍‍্যান ও ডেটা সায়েন্স" />
+  
+  <meta name="twitter:description" content="ফলিত পরিসংখ‍‍্যান ও ডেটা সায়েন্স" />
+  
+
+<meta name="author" content="এনায়েতুর রহীম">
+
+
+<meta name="date" content="2018-09-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="data-science.html">
+<link rel="next" href="data-visualization.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-684495-30"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-684495-30');
+</script>
+
+<!-- Adsense tracker -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-6844136270310089",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ডেটা সায়েন্স বই</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> ভূমিকা</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#section-1.1"><i class="fa fa-check"></i><b>1.1</b> পরিকল্পনা</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#section-1.2"><i class="fa fa-check"></i><b>1.2</b> ভূমিকা</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#----"><i class="fa fa-check"></i><b>1.3</b> ডেটা কী ও দেখতে কেমন?</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>1.4</b> ডেটা ভিজুয়ালাইজেশন</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>1.4.1</b> ডেটার শেইপ নিয়ে আলোচনা</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>1.5</b> লোকেশন ও ভ্যারিয়েশনের পরিমাপ</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>1.5.1</b> মিন, মিডিয়ান, মোড</a></li>
+<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>1.5.2</b> রেইন্জ, ভ্যারিয়্যান্স, স্ট্যান্ডার্ড ডিভিয়েশন</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>1.6</b> ভ্যারিয়েবলের মধ্যে সম্পর্ক</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>1.6.1</b> বাইভ্যারিয়েট সম্পর্ক</a></li>
+<li class="chapter" data-level="1.6.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>1.6.2</b> মাল্টিভ্যারিয়েট সম্পর্ক</a></li>
+<li class="chapter" data-level="1.6.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>1.6.3</b> রিগ্রেশনের ধারণা</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>1.7</b> প্রবাবিলিটি সম্পর্কে ধারণা</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>1.7.1</b> সেট থিউরি</a></li>
+<li class="chapter" data-level="1.7.2" data-path="index.html"><a href="index.html#section-1.7.2"><i class="fa fa-check"></i><b>1.7.2</b> ইভেন্ট</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#section"><i class="fa fa-check"></i><b>1.8</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>2</b> ডেটা সায়েন্স</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-science.html"><a href="data-science.html#what-is-data-science"><i class="fa fa-check"></i><b>2.1</b> ডেটা সায়েন্স কী?</a></li>
+<li class="chapter" data-level="2.2" data-path="index.html"><a href="index.html#----"><i class="fa fa-check"></i><b>2.2</b> ডেটা সায়েন্স কোথায় ব্যবহৃত হচ্ছে?</a></li>
+<li class="chapter" data-level="2.3" data-path="data-science.html"><a href="data-science.html#machine-learning"><i class="fa fa-check"></i><b>2.3</b> মেশিন লারনিং</a></li>
+<li class="chapter" data-level="2.4" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>2.4</b> ডেটা সায়েন্টিস্টদের কাজের ধরণ</a></li>
+<li class="chapter" data-level="2.5" data-path="data-science.html"><a href="data-science.html#------"><i class="fa fa-check"></i><b>2.5</b> ডেটা সায়েন্স- আপনার উপযুক্ত জব কোনটি?</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="data-science.html"><a href="data-science.html#-------"><i class="fa fa-check"></i><b>2.5.1</b> পরিসংখ্যানবিদরা কীভাবে এই বাজারে নিজেদের উপযোগী জব খুঁজবে?</a></li>
+<li class="chapter" data-level="2.5.2" data-path="data-science.html"><a href="data-science.html#------"><i class="fa fa-check"></i><b>2.5.2</b> ডেটা সায়েন্সে চাকুরীর বাজারে যা চাওয়া হচ্ছে</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="data-science.html"><a href="data-science.html#data-scientist-at-ge"><i class="fa fa-check"></i><b>2.6</b> Data Scientist at GE</a></li>
+<li class="chapter" data-level="2.7" data-path="data-science.html"><a href="data-science.html#section-2.7"><i class="fa fa-check"></i><b>2.7</b> সোর্সিং</a></li>
+<li class="chapter" data-level="2.8" data-path="data-science.html"><a href="data-science.html#section-2.8"><i class="fa fa-check"></i><b>2.8</b> ইটিএল</a></li>
+<li class="chapter" data-level="2.9" data-path="data-science.html"><a href="data-science.html#Why-statistics"><i class="fa fa-check"></i><b>2.9</b> পরিসংখ্যানে দক্ষতা অর্জন যে কারণে প্রয়োজন</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="data-science.html"><a href="data-science.html#What-do-we-do-with-data"><i class="fa fa-check"></i><b>2.9.1</b> ডেটা দিয়ে আমরা আসলে কী করি?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>2.10</b> বইটি যাদের জন্য</a></li>
+<li class="chapter" data-level="2.11" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>2.11</b> বইটি যেভাবে পড়তে হবে</a></li>
+<li class="chapter" data-level="2.12" data-path="data-science.html"><a href="data-science.html#r-"><i class="fa fa-check"></i><b>2.12</b> R পরিচিতি</a></li>
+<li class="chapter" data-level="2.13" data-path="data-science.html"><a href="data-science.html#-----"><i class="fa fa-check"></i><b>2.13</b> বাংলা কী বোর্ড পরীক্ষা করা হচ্ছে</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-and-variable.html"><a href="data-and-variable.html"><i class="fa fa-check"></i><b>3</b> ডেটা ও ভ‍্যারিয়েবল</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-and-variable.html"><a href="data-and-variable.html#example-of-data"><i class="fa fa-check"></i><b>3.1</b> ডেটার উদাহরণ</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="data-and-variable.html"><a href="data-and-variable.html#data-facebook-like-count"><i class="fa fa-check"></i><b>3.1.1</b> ফেইসবুক লাইক সংখ্যা</a></li>
+<li class="chapter" data-level="3.1.2" data-path="data-and-variable.html"><a href="data-and-variable.html#data-daily-internet-usage"><i class="fa fa-check"></i><b>3.1.2</b> দৈনিক ইন্টারনেট ব্যবহারের পরিমাণ</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>3.2</b> ভ্যারিয়েবল ও প্রকারভেদ</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>4</b> ডেটা ভিজুয়ালাইজেশন</a></li>
+<li class="chapter" data-level="5" data-path="Hypothesis-Tests.html"><a href="Hypothesis-Tests.html"><i class="fa fa-check"></i><b>5</b> হাইপোথিসিস টেস্টিং</a><ul>
+<li class="chapter" data-level="5.1" data-path="Hypothesis-Tests.html"><a href="Hypothesis-Tests.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
+<li class="chapter" data-level="5.2" data-path="Hypothesis-Tests.html"><a href="Hypothesis-Tests.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>6</b> সামারি বা সারাংশ</a></li>
+<li class="chapter" data-level="" data-path="e0a6a4e0a6a5e2808de0a78de0a6afe0a6b8e0a782e0a6a4e0a78de0a6b0.html"><a href="e0a6a4e0a6a5e2808de0a78de0a6afe0a6b8e0a782e0a6a4e0a78de0a6b0.html"><i class="fa fa-check"></i>তথ‍্যসূত্র</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/raheems/asds" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ফলিত পরিসংখ‍‍্যান ও ডেটা সায়েন্স</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-and-variable" class="section level1">
+<h1><span class="header-section-number">অধ্যায় 3</span> ডেটা ও ভ‍্যারিয়েবল</h1>
+<p>ডেটা সায়েন্স নিয়ে আলোচনার পর অনেকের হয়তো প্রশ্ন থাকবে যে ডেটা কী? ডেটা কোথায় থেকে আসে এবং সেগুলো কীভাবে কম্পিউটারে স্টোর করা হয়। কীভাবেই বা সেগুলো ব্যবহার করা হয়। ডেটা থেকে সিদ্ধান্ত গ্রহণ করে কীভাবে?</p>
+<p>চলুন ডেটা এনালাইজ করার আগে আমরা ডেটা কী সে সম্পর্কে জানি।</p>
+<blockquote>
+<p>ডেটা হলো কোন ব্যক্তি বা বিষয়ের বৈশিষ্ট্য বা ক্যারেক্টারিসটিক যা সংখ্যা, চিহ্ন, ছবি, অডিও, ভিডিও, কিংবা লিখিত বা টেক্সট-আকারে কোন মাধ্যমে (যেমন মুদ্রণ বা কম্পিউটারে) সংরক্ষণ করা হয়। সংরক্ষিত ডেটা বা বৈশিষ্ট্যসমূহকে পরবর্তীতে বিশ্লেষণের মাধ্যেমে বিশেষ কোন কাজে লাগানোর উপযোগী করে যা পাওয়া যায় তাকে তথ্য (Information) বলে।</p>
+</blockquote>
+<div id="example-of-data" class="section level2">
+<h2><span class="header-section-number">3.1</span> ডেটার উদাহরণ</h2>
+<div id="data-facebook-like-count" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> ফেইসবুক লাইক সংখ্যা</h3>
+<p>আপনার ফেইসবুক পোস্টে লাইকের সংখ্যার কথা ধরা যাক। ধরা যাক আপনি গত এক মাসে মোট ৫০ টি পোস্ট করেছেন। প্রতিটি পোস্টে <em>লাইক</em>-এর সংখ্যা যদি আপনি গণনা করেন তাহলে আপনার পোস্টগুলো আপনার বন্ধুদের মাঝে কতটা আগ্রহ সৃষ্টি করেছে সেই <em>বৈশিষ্ট্য</em> সম্পর্কে একটা ধারণা আপনি পেতে পারেন। এই লাইকের সংখ্যাই ডেটা।</p>
+<p>ধরি, লাইক সংখ‍্যাগুলো এরকম: 73, 38, 86, 23, 41, 61, 33, 41, 39, 50, 47, 37, 76, 20, 41, 69, 51, 48, 58, 55, 47, 64, 57, 45, 21, 38, 27, 1, 38, 46। এখানে ৩০ টি সংখ‍্যা আছে যেগুলো আপনার ৩০টি পোস্টের প্রতিটিতে কতগুলো <em>লাইক</em> দিয়েছে তা গণনা করেছেন। এই ডেটাকে নানা ভাবে সংরক্ষণ করা যেতে পারে। ফেইসবুক তাদের সার্ভারে অন্য সবার ডেটার সাথে আপনার এই ডেটাটিও সংরক্ষণ করে। ধরা যাক আপনি এই ডেটাগুলোকে আপনার কোন একটি কাজের জন্য সরক্ষণ করবেন। তার জন্য আমরা ডেটাকে সাধারণত ট্যাবুলার ফর্মে বা সারণি আকারে সাজাই যেটি দেখতে টেবিল <a href="data-and-variable.html#tab:facebooklike">3.1</a>-এর মতো হবে।</p>
+<table>
+<caption><span id="tab:facebooklike">Table 3.1: </span>ফেইসবুক পোস্টে লাইক-এর সংখ‍্যা</caption>
+<thead>
+<tr class="header">
+<th align="right">likes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">73</td>
+</tr>
+<tr class="even">
+<td align="right">38</td>
+</tr>
+<tr class="odd">
+<td align="right">86</td>
+</tr>
+<tr class="even">
+<td align="right">23</td>
+</tr>
+<tr class="odd">
+<td align="right">41</td>
+</tr>
+<tr class="even">
+<td align="right">61</td>
+</tr>
+<tr class="odd">
+<td align="right">33</td>
+</tr>
+<tr class="even">
+<td align="right">41</td>
+</tr>
+<tr class="odd">
+<td align="right">39</td>
+</tr>
+<tr class="even">
+<td align="right">50</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-daily-internet-usage" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> দৈনিক ইন্টারনেট ব্যবহারের পরিমাণ</h3>
+<p>আমরা প্রায় সবাই মোবাইল ইন্টারনেট প্যাকেজ ব্যবহার করি। আপনার দৈনিক কতটা ইন্টারনেট ব্যবহার করেন সেটি আপনার একটি <em>বৈশিষ্ট্য</em> যা ইন্টারনেট ব্যবহারে সাথে সম্পর্কযুক্ত। এই বৈশিষ্ট্যকে আমরা নানা ভাবে পরিমাপ করতে পারি। যার একটি হতে পারে আপনি কী পরিমাণ ইন্টারনেট ডেটা ব্যবহার করেন। ধরা যাক জানুয়ারি ২০১৮ থেকে অগাস্ট ২০১৮ পর্যন্ত প্রতি দিনের ইন্টারনেট ডেটা ব্যবহারের হিসাব রেকর্ড করা আছে।</p>
+<p>ডেটার প্রথম দশ দিনের হিসাব টেবিল <a href="data-and-variable.html#tab:internet-usage">3.2</a>-এ দেয়া হল।</p>
+<table>
+<caption><span id="tab:internet-usage">Table 3.2: </span>দৈনিক ইন্টারনেট ব্যবহারের পরিমাণ</caption>
+<thead>
+<tr class="header">
+<th align="left">dates</th>
+<th align="left">days</th>
+<th align="right">usage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2018-01-01</td>
+<td align="left">Monday</td>
+<td align="right">210.36</td>
+</tr>
+<tr class="even">
+<td align="left">2018-01-02</td>
+<td align="left">Tuesday</td>
+<td align="right">124.49</td>
+</tr>
+<tr class="odd">
+<td align="left">2018-01-03</td>
+<td align="left">Wednesday</td>
+<td align="right">253.57</td>
+</tr>
+<tr class="even">
+<td align="left">2018-01-04</td>
+<td align="left">Thursday</td>
+<td align="right">99.51</td>
+</tr>
+<tr class="odd">
+<td align="left">2018-01-05</td>
+<td align="left">Friday</td>
+<td align="right">129.80</td>
+</tr>
+<tr class="even">
+<td align="left">2018-01-06</td>
+<td align="left">Saturday</td>
+<td align="right">176.07</td>
+</tr>
+<tr class="odd">
+<td align="left">2018-01-07</td>
+<td align="left">Sunday</td>
+<td align="right">62.37</td>
+</tr>
+<tr class="even">
+<td align="left">2018-01-08</td>
+<td align="left">Monday</td>
+<td align="right">114.35</td>
+</tr>
+<tr class="odd">
+<td align="left">2018-01-09</td>
+<td align="left">Tuesday</td>
+<td align="right">129.22</td>
+</tr>
+<tr class="even">
+<td align="left">2018-01-10</td>
+<td align="left">Wednesday</td>
+<td align="right">125.63</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="--" class="section level2">
+<h2><span class="header-section-number">3.2</span> ভ্যারিয়েবল ও প্রকারভেদ</h2>
+<p>ফেইসবুক লাইক ডেটাতে একটি মাত্র কলাম যার নাম দেখাচ্ছে likes। আর likes এর মান গুলো সব একই নয়, আলাদা আলাদা। likes- - কে বলে ভ‍্যারিয়েবল (variable) বা বাংলায় বলে চলক। পরিসংখ‍্যানে ভ‍্যারিয়েবল শব্দটি প্রায়ই শোনা যাবে। অন‍্যভাবে বলা যায়</p>
+<blockquote>
+<p>ভ‍্যারিয়েবল হলো ডেটা ফাইলের মধ‍্যে কলামকে যে নাম দেয়া হয় সেই নাম।</p>
+</blockquote>
+<p>আমরা এই ভ‍্যারিয়েবলের নাম অন‍্য কিছুও দিতে পারতাম। সাধারণত এমন নামই দেয়া হয় যা থেকে ভ‍্যারিয়েবল ও তার মান সম্পর্কে একটা ধারণা পাওয়া যায়। এই ডেটায় একটি মাত্র ভ‍্যারিয়বল আছে বলে এরকম ডেটাকে ইউনিভ‍্যারিয়েট ডেটা (univariate data) বলে। যে ডেটায় দুটি ভ‍‍্যারিয়েবল থাকবে তাকে বলবে বাইভ‍্যারিয়েট (bivariate) ডেটা, এবং দুয়ের অধিক ভ‍্যারিয়বল থাকলে সেই ডেটাকে মাল্টিভ‍্যারিয়েট (multivariate) ডেটা বলে।</p>
+<p>এই ডেটাতে তিনটি ভ‍্যারিয়বল আছে। ভ‍্যারিয়েবলগুলো হচ্ছে dates, days, usage। যেহেতু দুয়ের অধিক ভ‍্যারিয়বল আছে সেহেতু এই ডেটাকে মাল্টিভ‍্যারিয়েট ডেটা বলা হবে।</p>
+<p>ভ‍্যারিয়েবল হতে পারে শুধু সংখ‍্যা, কিংবা তারিখ, কিংবা দিনের নাম (টেবিল <a href="data-and-variable.html#tab:internet-usage">3.2</a> দ্রষ্টব‍্য)। কোন একটি ভ‍্যারিয়েবল কী রকম মান গ্রহণ করে তার উপর নির্ভর করে ভ‍্যারিয়েবলের ধরন। মূলত ভ‍্যারিয়বল দুই ধরনের: কোয়ান্টিটেটিভ (quantitative) বা সংখ‍্যাবাচক ভ‍্যারিয়বল, এবং কোয়ালিটেটিভ (qualitative) বা ক‍‍্যাটেগরিক‍্যাল (categorical) ভ‍্যারিয়েবল।</p>
+<p>যে ভ‍্যারিয়েবল শুধু নাম্বার বা সংখ‍্যা মান গ্রহণ করে তাদেরকে কোয়ান্টিটেটিভ ভ‍্যারিয়েবল বলে। কোয়ান্টিটেটিভ ভ‍্যারিয়েবলের উপর সাধারণ গাণিতিক অপারেশন যেমন যোগ, বিয়োগ, গুন, ভাগ- এসব প্রয়োগ করা যায়।</p>
+<p>যে ভ‍্যারিয়েবল শুধু নাম জাতীয় মান গ্রহণ করে তাদের কোয়ালিটেটিভ ভ‍্যারিয়েবল বলে। যেমন, আজ কী বার এটি একটি কোয়ালিটেটিভ ভ‍্যারিয়েবল। স্বভাবতই কোয়ালিটেটিভ ভ‍্যারিয়েলের উপর গাণিতিক অপারেশন করা যায়না। কেননা আজ এবং কাল এই দুই দিনকে আমরা যোগ করবে পারব না।</p>
+<p>অনেক সময় কোয়ালিটেটিভ ভ‍্যারিয়েবলের মান সংখ‍্যা দিয়ে প্রকাশ করা হয়। যেমন সপ্তাদের দিনগুলোকে Saturday, Sunday এসব না বলে আমরা 1, 2, 3, 4, 5, 6, 7 এসব দিয়ে প্রকাশ করতে পারতাম। সেক্ষেত্রে কম্পিউটার এই ভ‍্যারিয়েবলতে হয়তো সংখ‍্যা হিসেবে স্টোর করত। কিন্তু তার মানে এই নয় যে আমরা গাণিতিক অপারেশন করতে পারব। মূল কথা, কোয়ালিটেটিভ ভ‍্যারিয়েবল কেবলমাত্র বর্ণানামূলক বৈশিষ্ট্য নির্দেশ করে।</p>
+<p>আরোও কিছু উদাহরণ দেখা যাক।</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">ভ‍্যারিয়েবলের ধরণ</th>
+<th align="left">উদাহরণ</th>
+<th align="left">ডেটা</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">কোয়ান্টিটেটিভ</td>
+<td align="left">ছাত্রের বয়স (বছর)</td>
+<td align="left">২৫, ২৩, ২০</td>
+</tr>
+<tr class="even">
+<td align="left">-</td>
+<td align="left">ব‍্যাংকে টাকার পরিমাণ</td>
+<td align="left">১০০০০০, ৫৬০০০, ৩৭০০</td>
+</tr>
+<tr class="odd">
+<td align="left">-</td>
+<td align="left">দৈনিক গড় তাপমাত্রা</td>
+<td align="left">২৩, ৩৩, ৪১</td>
+</tr>
+<tr class="even">
+<td align="left">-</td>
+<td align="left">ট্রাফিক জ‍্যামে দৈনিক ব‍্যয় (মিনিট)</td>
+<td align="left">১২০, ২০০, ১৮৭</td>
+</tr>
+<tr class="odd">
+<td align="left">কোয়ালিটেটিভ/ক‍‍্যাটেগরিক‍্যাল</td>
+<td align="left">পরীক্ষার ফল</td>
+<td align="left">পাশ, ফেইল</td>
+</tr>
+<tr class="even">
+<td align="left">-</td>
+<td align="left">অর্থনৈতিক ক্ল‍্যাস</td>
+<td align="left">উচ্চ বিত্ত, মধ‍্যবিত্ত, নিম্ববিত্ত</td>
+</tr>
+<tr class="odd">
+<td align="left">-</td>
+<td align="left">হালের জনপ্রিয় সাবজেক্ট</td>
+<td align="left">স্ট‍্যাটিসটিক্স, ডেটা সায়েন্স</td>
+</tr>
+<tr class="even">
+<td align="left">-</td>
+<td align="left">ডেটা সায়েন্স প্রোগ্রামিং ল‍্যাঙ্গুয়েজ</td>
+<td align="left">পাইথন, R, জুলিয়া</td>
+</tr>
+</tbody>
+</table>
+<p>লক্ষ‍্য করুন, কোয়ান্টিটেটিভ ভ‍্যারিয়েবলগুলি কিন্তু সবই একই রকম। কিন্তু কোয়ালিটেটিভ বা ক‍‍্যাটেগরিক‍্যাল ভ‍্যারিয়েবলগুলোর মধ‍্যে একটি আছে যেটি অন‍্যদের থেকে একটু আলাদা। পরীক্ষার ফল, জনপ্রিয় সাবজেক্ট, প্রোগ্রামিং ল‍্যাঙ্গুয়েজ- - এগুলোর কোন ন‍্যাচারাল অর্ডার নেই। অর্থাৎ কোনটি বড় বা উচু কিংবা কোনটি ছোট বা নিচু এরকম করে সাজানো যায় না। তবে অর্থনৈতিক ক্ল‍্যাস- - এই ভ‍্যারিয়েবলের মানগুলোকে ক্রমাকারে সাজানো যায়- - বড় থেকে ছোট বা ছোট থেকে বড়। ডেটা এনালাইজ করার সময় ও স্ট‍্যাটিসটিক‍্যাল প্রেডিক্টিভ মডেল ডেভলপ করার সময় এই বৈশিষ্ট্যটি কাজে লাগে।</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-science.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/raheems/asds_bn/edit/master/02-data.Rmd",
+"text": "Edit"
+},
+"download": ["asdsbook.pdf", "asdsbook.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

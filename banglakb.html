@@ -1,0 +1,564 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+"বাংলা" কী-বোর্ড <br> 
+
+<script type="text/javascript" language="javascript">
+
+english = false;
+
+//	This function returns the previous character in the myField starting at myOffset.
+//	For example, specify myOffset = 0 to get the last character from myField,
+//	For example, specify myOffset = 1 to get the 2nd last character from myField. 
+//	When myField is empty (meaning ''), return empty (i.e. '') as the function value. 
+//	When myField is a white character, return empty (i.e. '') as the function value.
+function myPrevious(myField, myOffset)
+{
+	var previous;
+	if (document.selection) 	//	Normally for Internet Explorer
+	{
+		myField.focus();
+		mySelection = document.selection.createRange();
+		mySelection.moveStart('character', -1 *(1 + myOffset));
+		previous = mySelection.text;
+		mySelection.moveStart('character', 1 + myOffset);
+	}
+	else if (myField.selectionStart || myField.selectionStart == '0') 	//	Normally for Mozilla / Fire Fox
+	{
+		previous = myField.value.substring(myField.selectionStart - 1 - myOffset, myField.selectionStart - myOffset);
+	} 
+	else 
+	{
+		previous = myField.value.substring(myField.value.length- 1 - myOffset, myField.value.length - myOffset);
+	}
+	switch(previous)
+	{
+		case ' ' :
+		case '\r':
+		case '\t':
+		case '\n': previous = '';
+	}
+	return previous;
+}
+
+// 	This function manipulates at myOffset of myField to get the desired codes.
+//	Manipulations are required to deal situations such as conjunct characters.
+// 	MyErase is the number of characters to be erased at myOffset of myField.
+// 	MyInsert is the character string to be inserted at myOffset of myField.
+//	For example, specify myOffset = 0 to mean after the last character of myField,
+//	For example, specify myOffset = 1 to mean just before the last character. 
+function myManipulate(myField, myInsert, myErase, myOffset) 
+{
+	if (document.selection) 	//	Normally for Internet Explorer
+	{
+//		myField.focus();
+		mySelection = document.selection.createRange();
+		mySelection.moveStart('character', -1 * (myErase + myOffset));
+		mySelection.moveEnd('character', -1 * myOffset);
+		mySelection.text = myInsert;
+		mySelection.moveStart('character', (myInsert.length + myOffset));
+		mySelection.moveEnd('character', myOffset);
+		//	something needs to be done to handle scrolling.
+	}
+	else if (myField.selectionStart || myField.selectionStart == '0') 	//	Normally for Mozilla / Fire Fox
+	{
+		var scrollTop = myField.scrollTop;
+		startPos = myField.selectionStart - myErase - myOffset;
+		endPos = myField.selectionEnd - myOffset;
+		myField.value = myField.value.substring(0, startPos) + myInsert + myField.value.substring(endPos, myField.value.length);
+		startPos = startPos + myInsert.length + myOffset;
+		endPos = startPos;
+		myField.setSelectionRange(startPos, endPos);
+		myField.scrollTop = scrollTop;
+	} 
+	else 
+	{
+//		myField.focus();
+		var scrollTop = myField.scrollTop;
+		myField.value = myField.value + myInsert;
+		myField.scrollTop = scrollTop;
+	}
+}
+
+
+//	This function returns the key just pressed.
+function myCurrent(myEvent)
+{
+	return myEvent.which ? myEvent.which : (myEvent.keyCode ? myEvent.keyCode : (myEvent.charCode ? myEvent.charCode : 0));
+}
+
+
+//	Handle keypress events and modify key codes.
+function mykeypress(myEvent, myId)
+{
+	//	function and others keys are to be handled perhaps in keyup or keydown event
+	if (myEvent.altKey || myEvent.ctrlKey)	
+		return true;
+	var field = document.getElementById(myId);
+	var current = myCurrent(myEvent);
+
+	//	Get the 1st and 2nd previous characters. 
+	var previous = myPrevious(field, 0);
+	var prevprev = myPrevious(field, 1);
+
+	var insert = '';		//	default is insert nothing
+	var erase = 0;			//	default is erase no characters.
+	var offset = 0;			//	default is manipulate at the end.
+
+	// From now on, only the required variables of the above three 
+	// are set, the other variables remain with the default values.
+
+	if (english == true)
+	{
+		//	Change keyboard layout to Bangla when "Xx" pressed.		
+		if (current == 120 && previous == 'X') //'x' 
+		{
+			erase = 1;			//	erase X.
+			myManipulate(field, insert, erase, offset);
+			english = false;	//	turn english off
+			return false;
+		}
+		return true;		//	need to ensure that letters are english here.
+	}
+	switch(current)
+	{
+		case 7: return true;			// tab
+		case 8: return true;			// backspace
+		case 10: return true;			// linefeed
+		case 13: return true; 			// return
+		case 27: return true;			// escape
+		case 32: return true;			// space
+
+		case 48: insert = '০'; break; 	//'0'
+		case 49: insert = '১'; break; 	//'1'
+		case 50: insert = '২'; break; 	//'2'
+		case 51: insert = '৩'; break; 	//'3'
+		case 52: insert = '৪'; break; 	//'4'
+		case 53: insert = '৫'; break; 	//'5'
+		case 54: insert = '৬'; break;	//'6'
+		case 55: insert = '৭'; break;	//'7'
+ 		case 56: insert = '৮'; break;	//'8'
+		case 57: insert = '৯'; break; 	//'9'
+
+		case 65: insert = 'অ'; break;	//'A' 
+		case 66: insert = 'ভ'; break; 	//'B'
+		case 67: insert = 'চ'; break; 	//'C'
+		case 68: insert = 'ড'; break; 	//'D'
+		case 69: insert = 'এ'; break; 	//'E'
+		case 70: insert = 'ফ'; break; 	//'F'
+		case 71: switch(previous)
+				{
+					case 'ণ': insert = 'ঙ'; erase = 1; break;
+					default : insert = 'ঘ'; break; 
+				}
+				break; 					//'G'
+		case 72: insert = 'হ'; break; 	//'H'
+		case 73: insert = 'ই'; break; 	//'I'
+		case 74: insert = 'জ'; break; 	//'J'
+		case 75: insert = 'খ'; break; 	//'K'
+		case 76: insert = '।'; break;	//'L'
+		case 77: switch(previous)
+				{
+					case '': insert = 'ম'; break;
+					case 'ং': insert = 'ম'; break;
+					case 'ঃ': insert = 'ম'; break;
+					case 'ঁ': insert = 'ম'; break;
+					case 'া': insert = 'ম'; break;
+					case 'ি': insert = 'ম'; break;
+					case 'ী': insert = 'ম'; break;
+					case 'ু': insert = 'ম'; break;
+					case 'ূ': insert = 'ম'; break;
+					case 'ৃ': insert = 'ম'; break;
+					case 'ে': insert = 'ম'; break;
+					case 'ৈ': insert = 'ম'; break;
+					case 'ো': insert = 'ম'; break;
+					case 'ৌ': insert = 'ম'; break;
+					default: insert = 'ং'; break;	//'M'
+				}
+				break;
+ 		case 78: insert = 'ণ'; break;		//'N'
+		case 79: insert = 'ও'; break; 	//'O'
+		case 80: insert = 'ফ'; break; 	//'P'
+		case 81: insert = '‍'; break; 	//'Q'	nukta to write e.g. rab
+		case 82: insert = 'ড়'; break; 	//'R'
+		case 83: insert = 'ষ'; break; 	//'S'
+		case 84: insert = 'ট'; break; 	//'T'
+		case 85: insert = 'উ'; break; 	//'U'
+		case 86: switch(previous)
+				{
+					case '': insert = 'ভ'; break;
+					case 'ঃ': insert = 'ভ'; break;
+					default: insert = 'ঃ'; break;
+				}
+				break;					//'V'
+		case 87: insert = 'ঋ'; break;		//'W'
+ 		case 88: english = true; return false;	//'X'
+		case 89: insert = 'ঞ'; break; 	//'Y'
+		case 90: insert = 'জ'; break; 	//'Z'
+
+		case 97: switch(previous)
+				{
+					case '': insert = 'আ'; break;
+					case 'ঃ': insert = 'অ'; break;
+					case 'ং': insert = 'অ'; break;
+					case 'ঁ': insert = 'অ'; break;
+					case 'অ': insert = 'আ'; erase = 1; break;
+					case 'আ': insert = 'আ'; break;
+					case 'ই': insert = 'অ'; break;
+					case 'ঈ': insert = 'অ'; break;
+					case 'উ': insert = 'অ'; break;
+					case 'ঊ': insert = 'অ'; break;
+					case 'ঋ': insert = 'অ'; break;
+					case 'এ': insert = 'অ'; break;
+					case 'ঐ': insert = 'অ'; break;
+					case 'ও': insert = 'অ'; break;
+					case 'ঔ': insert = 'অ'; break;
+					case 'া': insert = 'অ'; break;
+					case 'ি': insert = 'অ'; break;
+					case 'ী': insert = 'অ'; break;
+					case 'ু': insert = 'অ'; break;
+					case 'ূ': insert = 'অ'; break;
+					case 'ৃ': insert = 'অ'; break;
+					case 'ে': insert = 'অ'; break;
+					case 'ৈ': insert = 'অ'; break;
+					case 'ো': insert = 'অ'; break;
+					case 'ৌ': insert = 'অ'; break;
+					default : insert = 'া'; break; 
+				} 
+				break;					//'a' 
+		case 98: insert = 'ব'; break; 	//'b'
+		case 99: insert = 'ছ'; break; 	//'c'
+		case 100: insert = 'দ'; break; 	//'d'
+		case 101: switch(previous)
+				{
+					case '': insert = 'এ'; break;
+					case 'ঃ': insert = 'এ'; break;
+					case 'ং': insert = 'এ'; break;
+					case 'ঁ': insert = 'এ'; break;
+					case 'অ' : insert = 'এ'; break;
+					case 'আ': insert = 'এ'; break;
+					case 'উ': insert = 'এ'; break;
+					case 'ঊ': insert = 'এ'; break;
+					case 'ঋ': insert = 'এ'; break;
+					case 'ঔ': insert = 'এ'; break;
+					case 'া' : insert = 'এ'; break;
+					case 'ু': insert = 'এ'; break;
+					case 'ূ': insert = 'এ'; break;
+					case 'ৃ': insert = 'এ'; break;
+					case 'ৌ': insert = 'এ'; break;
+					case 'ে': insert = 'ৈ'; erase = 1; break;
+					case 'ৈ': insert = 'এ'; break;
+					case 'এ': insert = 'ঐ'; erase = 1; break;
+					case 'ঐ': insert = 'এ'; break;
+					case 'ি': insert = 'ী'; erase = 1; break;
+					case 'ী': insert = 'এ'; erase = 1; break;
+					case 'ই': insert = 'ঈ'; erase = 1; break;
+					case 'ঈ': insert = 'এ'; break;
+					case 'ো': insert = 'ৈ'; erase = 1; break;
+					case 'ও': insert = 'ঐ'; erase = 1; break;
+					default : insert = 'ে';  break; 
+				} 
+				break; 					//'e'
+		case 102: switch(previous)
+				{
+					case '': insert = 'ফ'; break;
+					case 'ঃ': insert = 'ফ'; break;
+					case 'ং': insert = 'ফ'; break;
+					case 'ঁ': insert = 'ফ'; break;
+					case 'অ' : insert = 'ফ'; break;
+					case 'আ': insert = 'ফ'; break;
+					case 'ই': insert = 'ফ'; break;
+					case 'ঈ': insert = 'ফ'; break;
+					case 'উ': insert = 'ফ'; break;
+					case 'ঊ': insert = 'ফ'; break;
+					case 'ঋ': insert = 'ফ'; break;
+					case 'এ': insert = 'ফ'; break;
+					case 'ঐ': insert = 'ফ'; break;
+					case 'ও': insert = 'ফ'; break;
+					case 'ঔ': insert = 'ফ'; break;
+					case 'া' : insert = 'ফ'; break;
+					case 'ি': insert = 'ফ'; break;
+					case 'ী': insert = 'ফ'; break;
+					case 'ু': insert = 'ফ'; break;
+					case 'ূ': insert = 'ফ'; break;
+					case 'ৃ': insert = 'ফ'; break;
+					case 'ে': insert = 'ফ'; break;
+					case 'ৈ': insert = 'ফ'; break;
+					case 'ো': insert = 'ফ'; break;
+					case 'ৌ': insert = 'ফ'; break;
+					case '্': insert = 'ফ'; break;
+					default : switch(prevprev)
+						{
+							case '': insert = 'ফ'; break;
+							case 'ঃ': insert = 'ফ'; break;
+							case 'ং': insert = 'ফ'; break;
+							case 'ঁ': insert = 'ফ'; break;
+							case 'অ' : insert = 'ফ'; break;
+							case 'আ': insert = 'ফ'; break;
+							case 'ই': insert = 'ফ'; break;
+							case 'ঈ': insert = 'ফ'; break;
+							case 'উ': insert = 'ফ'; break;
+							case 'ঊ': insert = 'ফ'; break;
+							case 'ঋ': insert = 'ফ'; break;
+							case 'এ': insert = 'ফ'; break;
+							case 'ঐ': insert = 'ফ'; break;
+							case 'ও': insert = 'ফ'; break;
+							case 'ঔ': insert = 'ফ'; break;
+							case 'া' : insert = 'ফ'; break;
+							case 'ি': insert = 'ফ'; break;
+							case 'ী': insert = 'ফ'; break;
+							case 'ু': insert = 'ফ'; break;
+							case 'ূ': insert = 'ফ'; break;
+							case 'ৃ': insert = 'ফ'; break;
+							case 'ে': insert = 'ফ'; break;
+							case 'ৈ': insert = 'ফ'; break;
+							case 'ো': insert = 'ফ'; break;
+							case 'ৌ': insert = 'ফ'; break;
+							case '্': insert = 'ফ'; break;
+							default : insert = '্'; offset = 1; break;
+						} 
+						break;   
+				}				
+				 break; 				//'f'
+		case 103: switch(previous)
+				{
+					case 'ণ': insert = 'ং'; erase = 1; break;
+					default : insert = 'গ'; break; 
+				} 
+				break;					// 'g'
+		case 104: switch(previous)
+				{
+					case 'ক' : insert = 'খ'; erase = 1;break;
+					case 'গ' : insert = 'ঘ'; erase = 1;break;
+					case 'ছ' : insert = 'চ'; erase = 1;break;
+					case 'জ' : insert = 'ঝ'; erase = 1;break;
+					case 'ত' : insert = 'থ'; erase = 1;break;
+					case 'দ' : insert = 'ধ'; erase = 1;break;
+					case 'ট' : insert = 'ঠ'; erase = 1;break;
+					case 'ড' : insert = 'ঢ'; erase = 1;break;
+					case 'প' : insert = 'ফ'; erase = 1;break;
+					case 'ব' : insert = 'ভ'; erase = 1; break;
+					case 'ম' : insert = 'ঙ'; erase = 1;break;
+					case 'ং' : insert = 'ঙ'; erase = 1;break;
+					case 'য়' : switch(prevprev)
+							{
+								case '': insert = 'হ'; break;
+								default: insert = 'ঁ'; erase = 1; break;
+							}
+							break;
+					case 'ঞ' : switch(prevprev)
+							{
+								case '': insert = 'হ'; break;
+								default: insert = 'ঁ'; erase = 1; break;
+							}
+							break;
+					case 'র' : insert = 'ড়'; erase = 1;break;
+					case 'ড়' : insert = 'ঢ়'; erase = 1;break;
+					case 'স' : insert = 'শ'; erase = 1;break;
+					case 'য' : insert = 'ঝ'; erase = 1;break;
+					case '্': insert = 'ঝ'; erase = 1; break;
+					default: insert = 'হ'; break;
+				}						
+				break; 					//'h'
+		case 105: switch(previous)
+				{
+					case '': insert = 'ই'; break;
+					case 'ঃ': insert = 'ই'; break;
+					case 'ং': insert = 'ই'; break;
+					case 'ঁ': insert = 'ই'; break;
+					case 'অ' : insert = 'ই'; break;
+					case 'আ': insert = 'ই'; break;
+					case 'উ': insert = 'ই'; break;
+					case 'ঊ': insert = 'ই'; break;
+					case 'ঋ': insert = 'ই'; break;
+					case 'ঔ': insert = 'ই'; break;
+					case 'া' : insert = 'ই'; break;
+					case 'ু': insert = 'ই'; break;
+					case 'ূ': insert = 'ই'; break;
+					case 'ৃ': insert = 'ই'; break;
+					case 'ৌ': insert = 'ই'; break;
+					case 'ি': insert = 'ী'; erase = 1;break;
+					case 'ী': insert = 'ই'; break;
+					case 'ই':  insert = 'ঈ'; erase = 1;break;
+					case 'ঈ':  insert = 'ই'; break;
+					case 'এ':  insert = 'ঐ'; erase = 1;break;
+					case 'ঐ':  insert = 'ই'; break;
+					case 'ে': insert = 'ৈ'; erase = 1;break;
+					case 'ৈ': insert = 'ই'; break;
+					case 'ো':  insert = 'ৈ'; erase = 1; break;
+					case 'ও':  insert = 'ঐ'; erase = 1; break;
+					default : insert = 'ি'; break; 
+				} 
+				break; 					//'i'
+		case 106: switch(previous)
+				{
+					case '' : insert = 'জ';  break;
+					case 'ঃ': insert = 'জ'; break;
+					case 'ং': insert = 'জ'; break;
+					case 'ঁ': insert = 'জ'; break;		
+					case 'আ': insert = 'জ'; break;
+					case 'ই': insert = 'জ'; break;
+					case 'ঈ': insert = 'জ'; break;
+					case 'উ': insert = 'জ'; break;
+					case 'ঊ': insert = 'জ'; break;
+					case 'ঋ': insert = 'জ'; break;
+					case 'এ': insert = 'জ'; break;
+					case 'ঐ': insert = 'জ'; break;
+					case 'ও': insert = 'জ'; break;
+					case 'ঔ': insert = 'জ'; break;
+					case 'া' : insert = 'জ'; break;
+					case 'ি': insert = 'জ'; break;
+					case 'ী': insert = 'জ'; break;
+					case 'ু': insert = 'জ'; break;
+					case 'ূ': insert = 'জ'; break;
+					case 'ৃ': insert = 'জ'; break;
+					case 'ে': insert = 'জ'; break;
+					case 'ৈ': insert = 'জ'; break;
+					case 'ো': insert = 'জ'; break;
+					case 'ৌ': insert = 'জ'; break;
+					case '্': insert = 'জ'; erase = 1; break;
+					default : insert = '্'; break; 
+				} 
+				break; 					//'j'
+		case 107: insert = 'ক'; break; 	//'k'
+		case 108: insert = 'ল'; break;	//'l'
+		case 109: insert = 'ম'; break;	//'m'
+ 		case 110: insert = 'ন'; break;	//'n'
+		case 111: switch(previous)
+				{
+					case '': insert = 'ও'; break;
+					case 'ঃ': insert = 'ও'; break;
+					case 'ং': insert = 'ও'; break;
+					case 'ঁ': insert = 'ও'; break;		
+					case 'অ' : insert = 'ও'; break;
+					case 'আ': insert = 'ও'; break;
+					case 'ই': insert = 'ও'; break;
+					case 'ঈ': insert = 'ও'; break;
+					case 'ঋ': insert = 'ও'; break;
+					case 'এ': insert = 'ও'; break;
+					case 'ঐ': insert = 'ও'; break;
+					case 'া' : insert = 'ও'; break;
+					case 'ি': insert = 'ও'; break;
+					case 'ী': insert = 'ও'; break;
+					case 'ৃ': insert = 'ও'; break;
+					case 'ে': insert = 'ও'; break;
+					case 'ৈ': insert = 'ও'; break;
+					case 'ো': insert = 'ৌ'; erase = 1; break;
+					case 'ৌ': insert = 'ও'; break;
+					case 'ু': insert = 'ূ'; erase = 1; break;
+					case 'ূ': insert = 'ও'; break;
+					case 'ও': insert = 'ঔ'; erase = 1; break;
+					case 'ঔ': insert = 'ও'; break;
+					case 'উ': insert = 'ঊ'; erase = 1; break;
+					case 'ঊ': insert = 'ও'; break;
+					default : insert = 'ো'; break; 
+				} 
+				break; 					//'o'
+		case 112: insert = 'প'; break; 	//'p'
+		case 113: erase = 1; break; 	//'q'
+		case 114: insert = 'র'; break; 	//'r'
+		case 115: insert = 'স'; break; 	//'s'
+		case 116: insert = 'ত'; break; 	//'t'
+		case 117: switch(previous)
+				{
+					case '' : insert = 'উ'; break;
+					case 'ঃ': insert = 'উ'; break;
+					case 'ং': insert = 'উ'; break;
+					case 'ঁ': insert = 'উ'; break;		
+					case 'া' : insert = 'উ'; break;
+					case 'ি': insert = 'উ'; break;
+					case 'ী': insert = 'উ'; break;
+					case 'ে': insert = 'উ'; break;
+					case 'ৈ': insert = 'উ'; break;
+					case 'ৃ' : insert = 'উ'; break;
+					case 'অ' : insert = 'উ'; break;
+					case 'আ': insert = 'উ'; break;
+					case 'ই': insert = 'উ'; break;
+					case 'ঈ': insert = 'উ'; break;
+					case 'ঋ': insert = 'উ'; break;
+					case 'এ': insert = 'উ'; break;
+					case 'ঐ': insert = 'উ'; break;
+					case 'ু': insert = 'ূ'; erase = 1; break;
+					case 'ূ': insert = 'উ'; break;
+					case 'ো': insert = 'ৌ'; erase = 1; break;
+					case 'ৌ': insert = 'উ'; break;
+					case 'ঔ': insert = 'উ'; break;
+					case 'ও': insert = 'ঔ'; erase = 1; break;
+					case 'ঊ': insert = 'উ'; break;
+					case 'উ': insert = 'ঊ'; erase = 1; break;
+					default : insert = 'ু'; break; 
+				} 
+				break;					//'u'
+		case 118: insert = 'ভ'; break;	//'v'
+		case 119: switch(previous)
+				{
+					case '' : insert = 'ঋ'; break;
+					case 'ঃ': insert = 'ঋ'; break;
+					case 'ং': insert = 'ঋ'; break;
+					case 'ঁ': insert = 'ঋ'; break;		
+					case 'া' : insert = 'ঋ'; break;
+					case 'ি': insert = 'ঋ'; break;
+					case 'ী': insert = 'ঋ'; break;
+					case 'ু': insert = 'ঋ'; break;
+					case 'ূ': insert = 'ঋ'; break;
+					case 'ৃ' : insert = 'ঋ'; break;
+					case 'ে': insert = 'ঋ'; break;
+					case 'ৈ': insert = 'ঋ'; break;
+					case 'ো': insert = 'ঋ'; break;
+					case 'ৌ': insert = 'ঋ'; break;
+					case 'অ' : insert = 'ঋ'; break;
+					case 'আ': insert = 'ঋ'; break;
+					case 'ই': insert = 'ঋ'; break;
+					case 'ঈ': insert = 'ঋ'; break;
+					case 'উ': insert = 'ঋ'; break;
+					case 'ঊ': insert = 'ঋ'; break;
+					case 'ঋ': insert = 'ঋ'; break;
+					case 'এ': insert = 'ঋ'; break;
+					case 'ঐ': insert = 'ঋ'; break;
+					case 'ও': insert = 'ঋ'; break;
+					case 'ঔ': insert = 'ঋ'; break;
+					default : insert = 'ৃ'; break; 
+				} 
+				break;	//'w'
+ 		case 120: switch(previous)
+				{
+					case 'অ' : insert = 'া'; erase = 1; break;
+					case 'আ': insert = 'া'; erase = 1; break;
+					case 'ই': insert = 'ি'; erase = 1; break;
+					case 'ঈ': insert = 'ী'; erase = 1; break;
+					case 'উ': insert = 'ু'; erase = 1; break;
+					case 'ঊ': insert = 'ূ'; erase = 1; break;
+					case 'ঋ': insert = 'ৃ'; erase = 1; break;
+					case 'এ': insert = 'ে'; erase = 1; break;
+					case 'ঐ': insert = 'ৈ'; erase = 1; break;
+					case 'ও': insert = 'ো'; erase = 1; break;
+					case 'ঔ': insert = 'ৌ'; erase = 1; break;
+					case 'ট': insert = 'ত'; erase = 1; break;
+					case 'ত': insert = 'ৎ'; erase = 1; break;
+					case 'ঠ' : insert = 'থ'; erase = 1;break;
+					case 'ড': insert = 'ড়'; erase = 1; break;
+					case 'ঢ': insert = 'ধ'; erase = 1; break;
+					case 'ব': insert = 'র'; erase = 1; break;
+					case 'ঢ': insert = 'ঢ়'; erase = 1; break;
+					case 'য': insert = 'য়'; erase = 1; break;
+					case 'য়': insert = 'ষ'; erase = 1; break;
+					case 'র': insert = 'ঋ'; erase = 1; break;
+					case 'ম' : insert = 'ং'; erase = 1; break;
+					case 'ভ' : insert = 'ঃ'; erase = 1; break;
+					case 'ঞ' : insert = 'ঁ'; erase = 1; break;
+				} 
+				break;					// 'x'
+		case 121: insert = 'য়'; break; 	//'y'
+		case 122: insert = 'য'; break; 	//'z'
+		default: return true;
+	}
+	myManipulate(field, insert, erase, offset);	
+	return false;
+}
+</script>
+
+<textarea name="mytext" id="mytext" onkeypress="return mykeypress(event, 'mytext');" rows="25" cols="90" style="font-family:comic sans ms"></textarea>
+
+</html>

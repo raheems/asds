@@ -1,0 +1,19 @@
+bookdown::gitbook:
+  includes:
+    in_header: [google_analytics.html]
+  css: style.css
+  config:
+    toc:
+      before: |
+        <li><a href="./">ডেটা সায়েন্স বই</a></li>
+      after: |
+        <li><a href="https://github.com/raheems/asds" target="blank">Published with bookdown</a></li>
+    edit: https://github.com/raheems/asds_bn/edit/master/%s
+    download: ["pdf", "epub"]
+bookdown::pdf_book:
+  includes:
+    in_header: [preamble.tex]
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: no
+bookdown::epub_book: default

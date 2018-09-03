@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ফলিত পরিসংখ‍‍্যান ও ডেটা সায়েন্স</title>
+  <meta name="description" content="ফলিত পরিসংখ‍‍্যান ও ডেটা সায়েন্স">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="ফলিত পরিসংখ‍‍্যান ও ডেটা সায়েন্স" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="ফলিত পরিসংখ‍‍্যান ও ডেটা সায়েন্স" />
+  <meta name="github-repo" content="raheems/asds" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ফলিত পরিসংখ‍‍্যান ও ডেটা সায়েন্স" />
+  
+  <meta name="twitter:description" content="ফলিত পরিসংখ‍‍্যান ও ডেটা সায়েন্স" />
+  
+
+<meta name="author" content="এনায়েতুর রহীম">
+
+
+<meta name="date" content="2018-09-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="data-and-variable.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-684495-30"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-684495-30');
+</script>
+
+<!-- Adsense tracker -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-6844136270310089",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ডেটা সায়েন্স বই</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> ভূমিকা</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#section-1.1"><i class="fa fa-check"></i><b>1.1</b> পরিকল্পনা</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#section-1.2"><i class="fa fa-check"></i><b>1.2</b> ভূমিকা</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#----"><i class="fa fa-check"></i><b>1.3</b> ডেটা কী ও দেখতে কেমন?</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>1.4</b> ডেটা ভিজুয়ালাইজেশন</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>1.4.1</b> ডেটার শেইপ নিয়ে আলোচনা</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>1.5</b> লোকেশন ও ভ্যারিয়েশনের পরিমাপ</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>1.5.1</b> মিন, মিডিয়ান, মোড</a></li>
+<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>1.5.2</b> রেইন্জ, ভ্যারিয়্যান্স, স্ট্যান্ডার্ড ডিভিয়েশন</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>1.6</b> ভ্যারিয়েবলের মধ্যে সম্পর্ক</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>1.6.1</b> বাইভ্যারিয়েট সম্পর্ক</a></li>
+<li class="chapter" data-level="1.6.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>1.6.2</b> মাল্টিভ্যারিয়েট সম্পর্ক</a></li>
+<li class="chapter" data-level="1.6.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>1.6.3</b> রিগ্রেশনের ধারণা</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>1.7</b> প্রবাবিলিটি সম্পর্কে ধারণা</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>1.7.1</b> সেট থিউরি</a></li>
+<li class="chapter" data-level="1.7.2" data-path="index.html"><a href="index.html#section-1.7.2"><i class="fa fa-check"></i><b>1.7.2</b> ইভেন্ট</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#section"><i class="fa fa-check"></i><b>1.8</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>2</b> ডেটা সায়েন্স</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-science.html"><a href="data-science.html#what-is-data-science"><i class="fa fa-check"></i><b>2.1</b> ডেটা সায়েন্স কী?</a></li>
+<li class="chapter" data-level="2.2" data-path="index.html"><a href="index.html#----"><i class="fa fa-check"></i><b>2.2</b> ডেটা সায়েন্স কোথায় ব্যবহৃত হচ্ছে?</a></li>
+<li class="chapter" data-level="2.3" data-path="data-science.html"><a href="data-science.html#machine-learning"><i class="fa fa-check"></i><b>2.3</b> মেশিন লারনিং</a></li>
+<li class="chapter" data-level="2.4" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>2.4</b> ডেটা সায়েন্টিস্টদের কাজের ধরণ</a></li>
+<li class="chapter" data-level="2.5" data-path="data-science.html"><a href="data-science.html#------"><i class="fa fa-check"></i><b>2.5</b> ডেটা সায়েন্স- আপনার উপযুক্ত জব কোনটি?</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="data-science.html"><a href="data-science.html#-------"><i class="fa fa-check"></i><b>2.5.1</b> পরিসংখ্যানবিদরা কীভাবে এই বাজারে নিজেদের উপযোগী জব খুঁজবে?</a></li>
+<li class="chapter" data-level="2.5.2" data-path="data-science.html"><a href="data-science.html#------"><i class="fa fa-check"></i><b>2.5.2</b> ডেটা সায়েন্সে চাকুরীর বাজারে যা চাওয়া হচ্ছে</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="data-science.html"><a href="data-science.html#data-scientist-at-ge"><i class="fa fa-check"></i><b>2.6</b> Data Scientist at GE</a></li>
+<li class="chapter" data-level="2.7" data-path="data-science.html"><a href="data-science.html#section-2.7"><i class="fa fa-check"></i><b>2.7</b> সোর্সিং</a></li>
+<li class="chapter" data-level="2.8" data-path="data-science.html"><a href="data-science.html#section-2.8"><i class="fa fa-check"></i><b>2.8</b> ইটিএল</a></li>
+<li class="chapter" data-level="2.9" data-path="data-science.html"><a href="data-science.html#Why-statistics"><i class="fa fa-check"></i><b>2.9</b> পরিসংখ্যানে দক্ষতা অর্জন যে কারণে প্রয়োজন</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="data-science.html"><a href="data-science.html#What-do-we-do-with-data"><i class="fa fa-check"></i><b>2.9.1</b> ডেটা দিয়ে আমরা আসলে কী করি?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>2.10</b> বইটি যাদের জন্য</a></li>
+<li class="chapter" data-level="2.11" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>2.11</b> বইটি যেভাবে পড়তে হবে</a></li>
+<li class="chapter" data-level="2.12" data-path="data-science.html"><a href="data-science.html#r-"><i class="fa fa-check"></i><b>2.12</b> R পরিচিতি</a></li>
+<li class="chapter" data-level="2.13" data-path="data-science.html"><a href="data-science.html#-----"><i class="fa fa-check"></i><b>2.13</b> বাংলা কী বোর্ড পরীক্ষা করা হচ্ছে</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-and-variable.html"><a href="data-and-variable.html"><i class="fa fa-check"></i><b>3</b> ডেটা ও ভ‍্যারিয়েবল</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-and-variable.html"><a href="data-and-variable.html#example-of-data"><i class="fa fa-check"></i><b>3.1</b> ডেটার উদাহরণ</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="data-and-variable.html"><a href="data-and-variable.html#data-facebook-like-count"><i class="fa fa-check"></i><b>3.1.1</b> ফেইসবুক লাইক সংখ্যা</a></li>
+<li class="chapter" data-level="3.1.2" data-path="data-and-variable.html"><a href="data-and-variable.html#data-daily-internet-usage"><i class="fa fa-check"></i><b>3.1.2</b> দৈনিক ইন্টারনেট ব্যবহারের পরিমাণ</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>3.2</b> ভ্যারিয়েবল ও প্রকারভেদ</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>4</b> ডেটা ভিজুয়ালাইজেশন</a></li>
+<li class="chapter" data-level="5" data-path="Hypothesis-Tests.html"><a href="Hypothesis-Tests.html"><i class="fa fa-check"></i><b>5</b> হাইপোথিসিস টেস্টিং</a><ul>
+<li class="chapter" data-level="5.1" data-path="Hypothesis-Tests.html"><a href="Hypothesis-Tests.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
+<li class="chapter" data-level="5.2" data-path="Hypothesis-Tests.html"><a href="Hypothesis-Tests.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>6</b> সামারি বা সারাংশ</a></li>
+<li class="chapter" data-level="" data-path="e0a6a4e0a6a5e2808de0a78de0a6afe0a6b8e0a782e0a6a4e0a78de0a6b0.html"><a href="e0a6a4e0a6a5e2808de0a78de0a6afe0a6b8e0a782e0a6a4e0a78de0a6b0.html"><i class="fa fa-check"></i>তথ‍্যসূত্র</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/raheems/asds" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ফলিত পরিসংখ‍‍্যান ও ডেটা সায়েন্স</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-science" class="section level1">
+<h1><span class="header-section-number">অধ্যায় 2</span> ডেটা সায়েন্স</h1>
+<p>ডেটা সায়েন্স এখন হট টপিক। ডেটা সায়েন্টিস্ট-দের জব মার্কেটে অনেক ডিম্যান্ড। বিদেশের মতো বাংলাদেশে ডেটা সায়েন্সের ব্যবহার এখনো সেরকমভাবে শুরু না হলেও ভেতরে ভেতরে তার প্রস্ততি চলছে। কিছু কিছু ক্ষেত্রে বেশ অগ্রগতিও হয়েছে। মার্কেটের দিকে তাকালেই আমরা কিছুটা আন্দাজ করতে পারি। বিশেষ করে তরুণ উদ্যোক্তা, ইন্টারনেট-ভিত্তিক ব্যবসা প্রসারের চিন্তাভাবনা, সরকারের সদিচ্ছা এবং তরুণ মন্ত্রী ও উপদেষ্টাদের ডিজিটাল বাংলাদেশ গড়ার প্রচেষ্টায় পজিটিভলি কাজ করা এবং সর্বোপরি ইন্টারনেট ব্যবহারকারিদের এক্সপোনেনশিয়াল বৃদ্ধি অচিরেই আমাদের ব্যবসা, বাণিজ্য, মার্কেটিংকে এমনভাবে বদলে দেবে যা আমরা এই মুহূর্তে অনেকেই বিশ্বাস করতে পারছিনা।</p>
+<p>যে কারণে নিকট ভবিষ্যতে আমাদের অনেক ডেটা সায়েন্টিস্ট দরকার হবে। দেশের চাহিদা মেটাতে আমাদের নিজেদের মধ্যে থেকেই সেই স্থান পুরণ করতে হবে। আমার কাছে অনেকেই প্রশ্ন করে কিভাবে ডেটা সায়েন্টিস্ট হওয়া যায়। আমি কথোপকথনের মাধ্যমে পুরো প্রসেসটার একটা সারাংশ দেয়ার চেষ্টা করেছি। বিস্তারিত জানতে পুরো লেখাটি পড়ার আহবান জানাচ্ছি।</p>
+<p>কিছুদিন আগেও ডেটা সায়েন্স কী বা ডেটা সায়েন্টিস্ট কারা সেটি নিয়ে স্বচ্ছ কোন ধারণা অনেকেরই ছিল না। এখনো ততটা পরিস্কার না হলেও ডেটা সায়েন্স কর্মক্ষেত্রে এখন নতুন কোন শব্দ নয়। এর নানাবিধ ব্যবহার থাকায় ডেটা সায়েন্স এখনো সে অর্থে সংজ্ঞায়িত করা সম্ভব হয়নি।</p>
+<div id="what-is-data-science" class="section level2">
+<h2><span class="header-section-number">2.1</span> ডেটা সায়েন্স কী?</h2>
+<p>ডেটা সায়েন্স নতুন এবং দ্রুত জনপ্রিয় হচ্ছে এমন একটি ফিল্ড। অনেকেই ইদানীং ডেটা সায়েন্সের প্রতি আগ্রহী হয়ে উঠছে। অথচ তাদের অনেকেই পরিষ্কারভাবে জানে না ডেটা সায়েন্স বলতে কী বোঝায়।</p>
+<p>ডেটা সায়েন্স ইজ লুজলি ডিফাইন্ড। অর্থাৎ ডেটা সায়েন্স বলতে অনেক কিছুই বোঝানো সম্ভব এবং অনেক কিছুই বোঝানো হচ্ছে। কোন্ ডিসিপ্লিনের মানুষ শব্দটি ব্যবহার করছে তার উপর নির্ভর করে তারা ডেটা সায়েন্স বলতে কী বোঝাচ্ছে। এর কারণ হলো ডেটা নিয়ে যে বা যারা কাজ করে তারাই নিজেদেরকে ডেটা সায়েন্টিস্ট হিসেবে দাবী করতে পারে।</p>
+<p>সহজ করে বলতে গেলে ডেটা সায়েন্স এমন একটি শাখা যেখানে নানা বিষয়ের লোকজন একসাথে ডেটা নিয়ে কাজ করে সেই ডেটাকে অর্থবহ করে ব্যবহারোপযোগী করে তোলে যা থেকে সিদ্ধান্ত গ্রহণ করা সম্ভব হয়। অর্থাৎ কোন প্রতিষ্ঠানের কাছে যে ডেটা আছে সেই ডেটা প্রতিষ্ঠানটির কী কাজে লাগবে সেভাবে ডেটাকে কাজে লাগানোর বিজ্ঞানকেই ডেটা সায়েন্স বলা যাবে।</p>
+</div>
+<div id="----" class="section level2">
+<h2><span class="header-section-number">2.2</span> ডেটা সায়েন্স কোথায় ব্যবহৃত হচ্ছে?</h2>
+<p>অতি পরিচিত উদাহরণ হলো গুগল। আপনি গুগলের সার্ভিসে লগিন থাকা অবস্থায় সার্চ করেন “cricket” তাহলে যা পাবেন আপনি গুগলে লগিন না করে যদি একই কী-ওয়ার্ড সার্চ করেন দেখবেন ফলাফল একটু হলেও ভিন্ন হবে। কেন এমনটা হয় সেটা ভেবে দেখেছেন কখনো? কারণ হলো গুগল আপনার পছন্দ অপছন্দ অনেক কিছুই জানে। আর সে মোতাবেক আপনার জন্য personalized search result তৈরী করে আপনার সামনে পেশ করে। গুগল এমনটি করে থাকে আর্টিফিশিয়াল ইন্টেলিজেন্সের মাধ্যমে যেটি ডেটা সায়েন্সের একটি অংশ বলা যায়।</p>
+<p>আপনি কী করেন, কোথায় ঘুরতে যান, কোথায় খান, কোন দোকানে শপিং করেন, কী ধরনের শপিং করেন সেসবের অনেককিছুই এখন ট্রাক করা সম্ভব এবং করা হচ্ছেও। লোকেশনের কথাই ধরা যাক। আপনার হাতের স্মার্ট ফোনটি আপনার গতিবিধি সবকিছুই রেকর্ড করছে। আপনি হয়তো জানেন না অথবা জেনেও কিছু বাড়তি সুবিধা দিয়ে গুগল আপনার কাছ থেকে এই তথ্যগুলো যোগাড় করে নিচ্ছে। এতে গুগলের ব্যবসায়িক উদ্দেশ্য তো অবশ্যই আছে সেই সাথে আপনাকেও অনেক কিছু সহজে করে দিচ্ছে। এসব তথ্য নিয়ে গুগলের মেশিন আপনার সম্পর্কে লার্ণ করছে বা শিখছে। আপনাকে চিনছে।</p>
+<p>এটা গেল একটা উদাহরণ। ডেটা সায়েন্সে এখন বিগ ডেটার ব্যবহার শুরু হয়েছে। বিগ ডেটা হলো অনেক বড় ডেটা। যত বড় হলে আপনার কম্পিউটারে সেই ডেটা এনালাইজ করা যাবে না সেরকম ডেটাকেই বিগ ডেটা বলা হচ্ছে। অন্যভাবে বলা যায় সাধারণ কনজিউমার লেভেলের কম্পিউটার দিয়ে যে ডেটা এনালাইজ করা যায়না সেই ডেটা হলো বিগ ডেটা।</p>
+<p>এরকম ডেটা এখন হরহামেশা তৈরী হচ্ছে। কারণ তথ্যের প্রবাহ বেড়েছে আর সেই সাথে কমেছে কম্পিউটার স্টোরেজ -এর মূল্য। ফলে সবাই এখন ব্যাপক হারে ডেটা জেনারেট করছে (যেমন ওয়েব সাইট ক্লিক, সাইট ভিজিট, টুইট করা কিংবা ফেইসবুকে স্ট্যাটাস দেয়া, ইত্যাদি) তেমনি সেই ডেটাকে অল্প খরচে এখন সংরক্ষণ করাও সহজ হয়েছে।</p>
+<p>তবে এর ব্যতিক্রমও আছে। যেমন প্লেনের ফ্লাইট রেকর্ড যা প্রতি সেকেন্ডে প্লেনের অবস্থান, দ্রুতি, বাতাদের প্রেশার সহ হাজারো প্যারামিটিারের মান রেকর্ড করতে পারে যা থেকে ফ্লাইটকে আরো নিরাপদ করা সম্ভব বলে বলা হচ্ছে। অথচ চাইলেই এরকম ডেটা রিয়েল টাইমে সংগ্রহ করা সহজ নয়। কারণ স্যাটেলাইটের মাধ্যমে গিগাবাইট ডেটা ট্রান্সফার করা ব্যাপক ব্যয়বহুল। আপনার মোবাইলের ডেটার খরচের সাথে তুলনা করলেই সেটা অনুমান করতে পারবেন।</p>
+</div>
+<div id="machine-learning" class="section level2">
+<h2><span class="header-section-number">2.3</span> মেশিন লারনিং</h2>
+<p>ডেটা সায়েন্সের একটি দিক হলো মেশিন লারনিং। মেশিন লারনিং বাস্তবায়ন করা খুব সহজ কাজ না হলেও ব্যাপারটা বেশ সহজ। একটি শিশুর কথা ধরা যাক। শিশুটি কিভাবে ভাষা শেখে সেটি ভেবে দেখুন। যদি বলা হয় শিশু নয়, একটি যন্ত্রকে ভাষা শেখাতে হবে তাহলে আপনি কিভাবে সেটি বাস্তবায়ন করবেন যাতে সে আপনার ভাষা বুঝতে পারে? কঠিন কাজ। কিন্তু এটিই মেশিন লারনিং। মেশিন যেভাবে শেখে সেটিই মেশিন লারনিং।</p>
+<p>উদাহরন দেই– হাসপাতালে অপারেশনর পর ICU তে যেসব রোগী যায় তাদের (ধরি) আনুমানিক ১০ শতাংশ মারা যায়। ধরুন আপনার হাসপাতালে সেরকম এক লক্ষ্য রোগীর তথ্য আছে — রোগীর বয়স, রোগের ধরন, অন্যান্য ক্লিনিকাল তথ্য। এই ডেটা থেকে লার্ণ করে আমরা এমন একটি স্ট্যাটিসটিক্যাল মডেল কি তৈরী করতে পারবো যেটি নতুন সেরকম একজন রোগীর মারা যাওয়ার সম্ভাবনা বের করতে পারবে? এমনটি যদি করা যায় তাহলে আমরা আগে থেকেই সে রোগীর প্রতি নিবিড় মনোযোগ দিতে পারবো বা ব্যবস্থা নিতে পারবো। এখানে মেশিন লারনিং ব্যবহার করে ‘ফিচার’ বা ‘ফ্যাক্টর’গুলোকে বের করা হচ্ছে যে ফ্যাক্টরগুলো রোগীর মারা যাওয়ার সাথে সম্পর্কিত।</p>
+<p>মেশিন লারনিং এর জনপ্রিয় উদাহরণ হলো গুগল নাউ বা Ok Google এবং এ্যাপল-এর সিরি এসিস্ট্যান্ট। তারা আপনার ভয়েস চিনে আপনার সাথে আলাপ চালিয়ে যেতে পারে এবং ছোটখাট প্রশ্নের উত্তরও দিতে পারে।</p>
+<p>আসছে দিনে মেশিন লারনিং-এর আরেকটি উপহার আমরা পেতে যাচ্ছি যেটি হলো স্বচালিত গাড়ি।</p>
+</div>
+<div id="---" class="section level2">
+<h2><span class="header-section-number">2.4</span> ডেটা সায়েন্টিস্টদের কাজের ধরণ</h2>
+</div>
+<div id="------" class="section level2">
+<h2><span class="header-section-number">2.5</span> ডেটা সায়েন্স- আপনার উপযুক্ত জব কোনটি?</h2>
+<p>এটি খুবই গুরুত্বপূর্ণ একটি টপিক। কেননা জব মার্কেটে নামার আগেই জানতে হবে কোন ধরনের জবের সাথে আপনার স্কিলসেট মেলে এবং কোন ধরনের জবের ফাংশন কী।</p>
+<p>হার্ভার্ড বিজনেস রিভিউ ২০১২ সনে লিখেছিল একবিংশ শতাব্দীর সেক্সিয়েস্ট জব হলো ডেটা সায়েন্স। এর সত্যতা প্রমাণের দরকার নেই; চাকরি বাজারে তাকালেই এর সত্যতা মেলে। আগের লেখায় বলেছিলাম ডেটা সায়েন্স এখন হট টপিক। তেমনি হট এর চাকুরির বাজার। আর বাজারের চাহিদা মেটাতে আমেরিকা এবং কানাডার অনেক বিশ্ববিদ্যালয়ে সম্প্রতি ডেটা সায়েন্স প্রোগ্রাম চালু করেছে। ধারণা করা যায় এই অনেকদিন অব্যাহত থাকবে যতদিন না বাজারে ডেটা সায়েন্টিস্টদের চাহিদার সাথে যোগানের সমন্বয় হয়।</p>
+<p>বাংলাদেশে এখনো সেভাবে ডেটা সায়েন্স-এর প্রচার কিংবা ডেটা সায়েন্টিস্টদের প্রয়োজনীয়তা অনুভূত হয়নি। তবে অন্যান্য দেশের মতো বাংলাদেশেও ব্যাপকভাবে ডেটা ভিত্তিক সিদ্ধান্তগ্রহণের কাজ দ্রুত শুরু হয়ে যাবে। এখন একটু একটু করে ঢেউ বাংলাদেশে এসে লাগছে। আমার ধারণা আগামী ১ থেকে ২ বছরের মধ্যেই এই ঢেউ সুনামির রূপ ধারণ করবে। যার মানে হলো আমেরিকার মতো বাংলাদেশেও ডেটা ব্যবহার করে ব্যবসায়িক সিদ্ধান্তগ্রহণ করা শুরু হবে। আর তখনই ডেটা সায়েন্স জব মার্কেটে দক্ষ ডেটা সায়েন্টিস্ট ও এনালিস্টদের শুন্যতা অনুভূত হবে।</p>
+<p>বিদেশে বিশেষ করে আমেরিকাতে গত এক বছরে ডেটা সায়েন্স ফিল্ডে চাকুরির বাজার ব্যাপক প্রসার লাভ করেছে। যার ফলে এই ফিল্ডের সাথে যে-কোনভাবে সম্পর্কযুক্ত সবাই এই মার্কেটে ঢুকতে চাইছে। ফলে প্রতিযোগিতা বাড়ছে তবে এখনো দক্ষ জনবলের অভাব রয়ে গিয়েছে। ফলে যত বেশী জবের সুযোগ আছে তত বেশী প্রার্থী পাওয়া যাচ্ছে না। কিছুদিন আগেও চাকুরি প্রার্থী এবং চাকুরি দাতা কেউই ঠিকমতো জানতো না ডেটা সায়েন্স এবং ডেটা সায়েন্টিস্টদের আসলে কোথায় কাজে লাগানো হবে। কিংবা কী ধরনের দক্ষতা সম্পন্ন লোকদের হায়ার করতে হবে। সে পরিস্থিতি এখনও খুব একটা পরিবর্তিত হয়েছে তা বলা যাবে না তবে আগের চেয়ে পরিশোধিত হয়েছে এবং চাকুরিদাতারা এখন ডেটা সায়েন্টিস্টদের কাজের পরিধি এবং কাজের ধরণ আগের চেয়ে ভালো বুঝতে পারছে এবং সে মোতাবেক দক্ষ ব্যক্তিদের হায়ার করছে। বলা যায় আগামী দিনে কাজের পরিধিগুলো আরো সুনির্দিষ্ট হবে এবং চাকুরি প্রার্থীরা জব মার্কেটে তাদের জায়গা খুঁজে পাবে।</p>
+<div id="-------" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> পরিসংখ্যানবিদরা কীভাবে এই বাজারে নিজেদের উপযোগী জব খুঁজবে?</h3>
+<p>নতুন প্রজন্মের পরিসংখ্যানবিদ বা অন্য কোয়ান্টিটেটিভ ডিসিপ্লিনের গ্রাজুয়েটরা এই বাজারে প্রবেশের জন্য উদগ্রীব। কিন্তু তাদের বেশীরভাগই ডেটা সায়েন্সে প্রাতিষ্ঠানিকভাবে প্রশিক্ষিত নয়। যে কারণে চাকুরীর বাজারে গিয়ে তারা বুঝতে পারছে না কোন পদের জন্য আবেদন করবে কিংবা কোন পদের সাথে তাদের দক্ষতা সামঞ্জস্যপূর্ণ।</p>
+<p>কিন্তু তাদের বেশীরভাগই ডেটা সায়েন্সে প্রাতিষ্ঠানিকভাবে প্রশিক্ষিত নয়। যে কারণে চাকুরীর বাজারে গিয়ে তারা বুঝতে পারছে না কোন পদের জন্য তারা আবেদন করবে কিংবা কোন পদের সাথে তাদের দক্ষতা সামঞ্জস্যপূর্ণ। জব ডেসক্রিপশনের সাথে প্রার্থীর অভিজ্ঞতা ও দক্ষতার মিল না হলে একদিকে যেমন চাকুরী প্রাপ্তিতে দেরী হবে অন্যদিকে চাকুরী কোনভাবে পেয়ে গেলেও কর্মক্ষেত্রে গিয়ে সেই মিসম্যাচ প্রকাশিত হবে। এটা প্রার্থী এবং কোম্পানী — দুয়ের জন্যই ব্যয়বহুল।</p>
+</div>
+<div id="------" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> ডেটা সায়েন্সে চাকুরীর বাজারে যা চাওয়া হচ্ছে</h3>
+<p>এটি অনস্বীকার্য যে সংশ্লিষ্ট সবাই এই ফিল্ডে কাজ করতে চাইছে এবং আরো অনেকেই উঁকি মেরে দেখছে যে ডেটা সায়েন্টিস্টরা আসলে কী ধরনের কাজ করে। আমি এখানে এটা হাই-লেভেল ওভারভিউ দিচ্ছি যাতে ডেটা সায়েন্স ফিল্ডে কাজের প্রবাহচিত্রটি বোঝা যায়। প্রথমেই দেখে নেয়া যাক ডেটা সায়েন্টিস্ট পদের জবে কী ধরনের অভিজ্ঞতা চাওয়া হয়।</p>
+<p>জেনারেল ইলেক্ট্রিক তাদের ক্যালিফোর্নিয়া বেইজে ডেটা সায়েন্টিস্ট চাইছে। সেখানে যা যা চাওয়া হচ্ছে তার সারসংক্ষেপ —</p>
+</div>
+</div>
+<div id="data-scientist-at-ge" class="section level2">
+<h2><span class="header-section-number">2.6</span> Data Scientist at GE</h2>
+<p>এরপর দেখা যাক ক্লিভল্যান্ড ক্লিনিকে ডেটা সায়েন্টিস্টদের জন্য কী কী চাওয়া হচ্ছে —</p>
+<p>দেখা যাক ইন্টেল কী ধরনের ডেটা সায়েন্টিস্ট চাইছে</p>
+<p>আপনি উপরের উদাহরণগুলোতে পুরো জব ডেসক্রিপশন নাও পড়ে থাকেন শুধু আন্ডারলাইন করা অংশুটুকু পড়লেও বুঝতে পারবেন কী ধরনের দক্ষতা এরা চাইছে। পরিসংখ্যানের ছাত্র হয়ে থাকলে এর অধিকাংশই আপনার জানাশোনার মধ্যে হবে। শুধু ডেটাবেইজ, বিগডেটা আর্কিটেকচার, হাডুপ, এইচবেইজ, মাহাউট, এসব আপনার কাছে নতুন লাগবে।</p>
+<p>আপনি উপরের উদাহরণগুলোতে পুরো জব ডেসক্রিপশন নাও পড়ে থাকেন শুধু আন্ডারলাইন করা অংশুটুকু পড়লেও বুঝতে পারবেন কী ধরনের দক্ষতা এরা চাইছে। পরিসংখ্যানের ছাত্র হয়ে থাকলে এর অধিকাংশই আপনার জানাশোনার মধ্যে হবে।</p>
+<p>ডেটা সায়েন্স ফিল্ডে কাজের প্রবাহচিত্র</p>
+<p>এবারে প্রবাহচিত্রটি তুলে ধরছি যাতে করে সবাই সহজে বুঝতে পারেন। পোস্টের একদম শুরুতে আমি একটি প্রবাহচিত্র দিয়েছি। সেটিকেই বাংলায় করে দিলাম যাতে পাঠক আকৃষ্টবোধ করেন। চিত্র দেখুন।</p>
+<p><img src="etl-bangla.PNG" /><!-- --> ডেটা সায়েন্স এর জব মূলত ইটিএল (ETL – Extract, Transform, Load) এবং এনালিটিক্স – এই দুই ধাপে সীমাবদ্ধ। আরেকটি ধাপ চিন্তা করা যেতে পারে যেটিকে আমি তথ্য সংগ্রহ ধাপ বলেছি। এগুলো সংক্ষেপে ব্যাখ্যা করছি।</p>
+</div>
+<div id="section-2.7" class="section level2">
+<h2><span class="header-section-number">2.7</span> সোর্সিং</h2>
+<p>প্রথম ধাপটি সাধারণত ডেটা সাইন্টিস্টদের কাছে উহ্য থাকে। যেটিকে আমরা সোর্স বলতে পারি। সোর্স পর্যায়ে আসলে তথ্য সংগ্রহ করা হয়। কোন একটি ইন্ডাস্ট্রির কথা চিন্তা করুন। তারা কোন না কোন ভাবে তথ্য সংগ্রহ করছে। এসব সিস্টেমে ফ্রন্টএন্ডে ইউজার ফ্রেন্ডলি ইন্টারফেসের মাধ্যমে তথ্য ইনপুট করা হয়। যেটি কোন এক ডেটাবেইজে গিয়ে জমা হয়। মোটা দাগে এই অংশটি সফটওয়্যার ডেভলপারদের কাজ। তারা ইউজার ইন্টারফেইস ডিজাইন থেকে শুরু করে বেসিক ডেটা স্টোরেজ সলুশন তৈরী করে। এই ধাপে সাধারণত কোন এনালিটিক কাজ করা হয়না। হয়তো বেসিক ডেটা সামারি টাইপের কিছু করা হয়ে থাকে। সেটা নির্ভর করে সফটওয়্যারে সেরকম সুবিধাদি আছে কিনা তার উপর।</p>
+</div>
+<div id="section-2.8" class="section level2">
+<h2><span class="header-section-number">2.8</span> ইটিএল</h2>
+<p>দ্বিতীয় ধাপটি অনেক বড়। এটিকে জব ডেসক্রিপশনে বলবে ETL। এই ধাপটিকে আইটি ধাপও বলা যায় কেননা পরিসংখ্যানবিদরা সাধারণত এই ধাপে কাজ করেনা বা তারা এখন পর্যন্ত ততটা অবগত নয়। তবে পরিস্থিতি বদলাচ্ছে। এখন সবাইকেই সবকিছু সম্পর্কে মোটামুটি ধারণা রাখতে হচ্ছে।</p>
+<p>সহজ কথায় বলতে গেলে এই ধাপে ITর লোকজন নানা সোর্স সিস্টেম থেকে ডেটাকে এনালিস্টদের কাছে পৌঁছানোর জন্য যা করা দরকার সেগুলো সম্পন্ন করে। এই ধাপে যে কাজ গুলো করা হয় সেগুলোকে সংক্ষেপে ETL বা extract, transform, load বলে। এখানে বিভিন্ন সোর্স সিস্টেমের র ডেটাকে এক্সট্রাক্ট করে, সেগুলোকে প্রয়োজন মতো একটার সাথে একটা জুড়ে দিয়ে (merging/linking/joining), পরিশোধন, পরিবর্তন, পরিবর্ধন করে ডেটা ওয়্যারহাউজে এনে জমা করে। ডেটা ওয়্যারহাইজ হলো অনেক বড় ডেটা স্টোরেজ যেখান থেকে প্রয়োজনীয় ডেটা সহজে কোয়েরি করা যায়। বলা যায় ডেটা ওয়্যারহাউজ হলো সব ডেটাবেজের ডেটাবেজ।</p>
+<p>আমি জানি বাইরে থেকে এই প্রসেসটি সহজে বোঝা সহজ নয়। তাই বাংলাভাষীরা বুঝতে পারবে এমন একটি উদাহরণের মাধ্যমে বোঝানোর চেষ্টা করবো।</p>
+<p>ইটিএল প্রসেসটিকে তুলনা করা যায় জমি থেকে ফসল তুলে খাবার টেবিলে পৌঁছানোর আগ পর্যন্ত যা করা হয় তার সাথে। ফসলের জমি থেকে নানা ধরনের ফসল (ধান, আলু, গম) তুলে এনে, গাড়িতে বা অন্য কোনভাবে বহন করে মধ্যবর্তী কোন স্থানে এনে পরিস্কার করে বিভিন্ন শস্য আলাদা করে হোলসেল মার্কেটে বা স্টোরেজে পাঠানো। সেখান থেকে গ্রাহক পর্যায়ে পৌঁছানোর জন্য কাঁচা ফসল বিক্রয় কেন্দ্রে পাঠানো হবে। এই ধাপটিই ইটিএল। অর্থাৎ</p>
+<p>এক্সট্র্যাক্ট- জমি থেকে নানা শস্য তুলে আনা (সব ধরনের সোর্স থেকে ডেটা সংগ্রহ করা) ট্রান্সফরম – শস্যগুলোকে বাছাই করা, আলাদা আলাদা করে শস্যের ধরন অনুযায়ি বস্তায় ভরা (ডেটা ক্লিনিং, মার্জিং) লোড – গ্রহকের কাছে পৌঁছানোর জন্য বাজারে পাঠানোর উপযোগি করা (ডেটা ওয়্যারহাউজিং) কোন ব্যক্তি যেমন নিজে বীজ বুনে জমিতে লাগিয়ে, চাষ করে, ফসল ফলিয়ে সেই ফসল পরিচর্যা করে তারপর টেবিলে বসে খাওয়ার জন্য যা যা করা দরকার তার সবগুলো নিজে করে না, বরং প্রত্যেকটি ধাপে দক্ষতা অনুযায়ি ব্যক্তিবর্গ তাদের অংশটুকু সম্পন্ন করে বলেই ভোক্তাদের টেবিলে খাবার পৌঁছে যায়।</p>
+</div>
+<div id="Why-statistics" class="section level2">
+<h2><span class="header-section-number">2.9</span> পরিসংখ্যানে দক্ষতা অর্জন যে কারণে প্রয়োজন</h2>
+লাইনের মাঝখানে ‌3.1415927 ধরে নেই X = ১০০ / ২০০
+<span class="math display">\[\begin{equation*}
+\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
+\end{equation*}\]</span>
+<p>একটি র‍্যান্ডম নাম্বার -1.0827932</p>
+<p>গড় কাকে বলে? <span class="math inline">\(X\)</span> যদি ড়্যান্ডম ভ্যারিয়েবল হয় তাহলে এর গড় বের করতে হয় <span class="math inline">\(\bar{X} = \frac{\sum{x}}{n}\)</span></p>
+<div id="What-do-we-do-with-data" class="section level3">
+<h3><span class="header-section-number">2.9.1</span> ডেটা দিয়ে আমরা আসলে কী করি?</h3>
+<p>আমরা এই যে ডেটা দিয়ে এত কিছু করার চিন্তা ভাবনা করছি এবং অনেকক্ষেত্রে করেও ফেলছি সেটি কীভাবে সম্ভব হচ্ছে সেটি একটু গভীরে গিয়ে আমাদের ভেদে দেখা দরকার। ডেটা দিয়ে আমরা কোনকিছুর বর্তমান অবস্থা যেমন পরিমাপ করছি তেমনি ভবিষ্যতে কী ঘটবে সেটিও প্রেডিক্ট করছি। এসব কিছুর মূলে রয়েছে ভ্যারিয়েশন বা ভেদ। পরিসংখ্যানের একটু অমূল্য কনসেপ্ট-এর নাম যদি উল্লেখ করতে হয় তাহলে ভ্যারিয়েশনের কনসেপ্টটি একেবারে প্রথমদিকে থাকবে।</p>
+<p>আমাদের একটা ধারণা রয়েছে যে পরিসংখ্যান মানেই সারণি আর সংখ্যা। সেটি অবশ্য ভুল নয়। কিন্তু এটি পরিসংখ্যানের অতি ক্ষুদ্র একটি অংশ মাত্র। এটি ঠিক যে পরিসংখ্যানের প্রাথমিক কাজই হলো উপাত্ত থেকে তথ্য বের করে আনা। লক্ষ্য করুন আমি বলেছি উপাত্ত থেকে তথ্য বের করার কথা। আপাতদৃস্টিতে উপাত্ত আর তথ্য অনেকের কাছে সমার্থক মনে হতে পারে। কিন্তু আমাদের জানতে হবে এদের পার্থক্য কোথায়। ধরা যাক গত বিশ বছরের স্যাটেলাইট ইমেজিং এর মাধ্যমে বাংলাদেশের দক্ষিণাঞ্চলের বনভূমির চিত্র সংগ্রহ করা হয়েছে। এই চিত্রগুলো এবং আনুষংজ্ঞিক যে ডেটা সংগ্রহ করা হয়েছে সেগুলো শুধুই ডেটা বা উপাত্ত। কিন্তু এই ডেটাকে বিশ্লেষণ করে যখন দেখা যাবে বিশ বছর আগে আমাদের যে পরিমাণ বনভূমি ছিল আজকে তার চেয়ে অনেক কম বনভূমি অবশিষ্ট রয়েছে তখন এটিকে আমরা বলব তথ্য। উপাত্ত থাকলেই সেটি এমনি এমনি কাজের হবে এমনটি নয়। বরং সেটিকে কাজের উপযোগী করা পরিসংখ্যানের অন্যতম কাজ। অবশ্যই উপাত্ত সংগ্রহ এবং তার পরিকল্পনাও পরিসংখ্যানের অংশ।</p>
+<p>তাহলে দেখা গেল উপাত্ত মানেই তথ্য নয়। উপাত্তকে বরং খনি থেকে প্রাপ্ত আকরিকের সাথে তুলনা করা যায়। আকরিককে যেমন নানা প্রক্রিয়ার মধ্যে দিয়ে তা থেকে লোহা বের করা হয়। তেমনি উপাত্তকে ধুয়ে মুছে পরিস্কার করে তা থেকে তথ্য বের করে আনাই পরিসংখ্যানের উদ্দেশ্য। আর সেজন্য যেসব উপকরণ ও পদ্ধতির প্রয়োজন তা আমরা পরিসংখ্যান নামক আপাত: ভীতিকর বিষয় থেকে জানতে পারবো।</p>
+<p>উইকিপিডিয়া থেকে- ‘Statistics is the study of the collection, organization, analysis, interpretation, and presentation of data. It deals with all aspects of this, including the planning of data collection in terms of the design of surveys and experiments.’</p>
+<p>এই সংজ্ঞা থেকে পরিসংখ্যানের একটি দিক সম্পর্কে আমরা ধারনা পাই। সেটি হলো উপাত্তের বিশ্লেষণ, ব্যাখ্যা ও পরিবেশন সম্পর্কিত। পরিসংখ্যানের এই দিকটিকে বলা হয় বর্ণনামূলক পরিসংখ্যান বা ডেসক্রিপটিভ পরিসংখ্যান। এই সংজ্ঞায় পরিসংখ্যানের (আমার মতে) সবচেয়ে গুরুত্বপূর্ণ দিকটিই না বলা রয়ে গেছে। সেটি হলো – সিদ্ধান্ত গ্রহণে পরিসংখ্যানের ব্যবহার এবং সে সম্পর্কিত দিকটি যাকে ইংরেজীতে আমরা বলি ইনফারেনসিয়াল পরিসংখ্যান। পরিসংখ্যানের যে অংশটি পরিশোধিত উপাত্ত (তথ্য)-কে ব্যবহার করে প্রকল্পের পরীক্ষণ (টেস্ট অব হাইপোথিসিস) করে এবং তা থেকে সিদ্ধান্ত গ্রহণে (ডিসিসন মেকিং) ভূমিকা রাখে সেই অংশটিকে বলে ইনফারেনসিয়াল পরিসংখ্যান।</p>
+</div>
+</div>
+<div id="--" class="section level2">
+<h2><span class="header-section-number">2.10</span> বইটি যাদের জন্য</h2>
+</div>
+<div id="---" class="section level2">
+<h2><span class="header-section-number">2.11</span> বইটি যেভাবে পড়তে হবে</h2>
+</div>
+<div id="r-" class="section level2">
+<h2><span class="header-section-number">2.12</span> R পরিচিতি</h2>
+</div>
+<div id="-----" class="section level2">
+<h2><span class="header-section-number">2.13</span> বাংলা কী বোর্ড পরীক্ষা করা হচ্ছে</h2>
+<p>আমার দেশের নাম বাংলাদেশ। আমি বাংলাদেশে বাস করি</p>
+<p>You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="#intro"><strong>??</strong></a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="#methods"><strong>??</strong></a>.</p>
+<p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))
+<span class="kw">plot</span>(pressure, <span class="dt">type =</span> <span class="st">&#39;b&#39;</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:nice-fig"></span>
+<img src="asdsbook_files/figure-html/nice-fig-1.png" alt="Here is a nice figure বাংলায় ছবির শিরোনাম পরিবর্তন করে দিলাম!" width="80%" />
+<p class="caption">
+Figure 2.1: Here is a nice figure বাংলায় ছবির শিরোনাম পরিবর্তন করে দিলাম!
+</p>
+</div>
+<p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="data-science.html#fig:nice-fig">2.1</a>. Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="data-science.html#tab:nice-tab">2.1</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(
+  <span class="kw">head</span>(iris, <span class="dv">20</span>), <span class="dt">caption =</span> <span class="st">&#39;Here is a nice table বাংলায় সারণির শিরোনাম পরিবর্তন করে দিলাম&#39;</span>,
+  <span class="dt">booktabs =</span> <span class="ot">TRUE</span>
+)</code></pre></div>
+<table>
+<caption><span id="tab:nice-tab">Table 2.1: </span>Here is a nice table বাংলায় সারণির শিরোনাম পরিবর্তন করে দিলাম</caption>
+<thead>
+<tr class="header">
+<th align="right">Sepal.Length</th>
+<th align="right">Sepal.Width</th>
+<th align="right">Petal.Length</th>
+<th align="right">Petal.Width</th>
+<th align="left">Species</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.7</td>
+<td align="right">3.2</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.6</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="right">3.6</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.7</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.6</td>
+<td align="right">3.4</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.4</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.4</td>
+<td align="right">2.9</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.7</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.8</td>
+<td align="right">3.4</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.8</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.3</td>
+<td align="right">3.0</td>
+<td align="right">1.1</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.8</td>
+<td align="right">4.0</td>
+<td align="right">1.2</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.7</td>
+<td align="right">4.4</td>
+<td align="right">1.5</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.3</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.7</td>
+<td align="right">3.8</td>
+<td align="right">1.7</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.8</td>
+<td align="right">1.5</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+</tbody>
+</table>
+<p>You can write citations, too. For example, we are using the <strong>bookdown</strong> package <span class="citation">(Xie <a href="#ref-R-bookdown">2018</a>)</span> in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(Xie <a href="#ref-xie2015">2015</a>)</span>.</p>
+
+</div>
+</div>
+<h3>তথ‍্যসূত্র</h3>
+<div id="refs" class="references">
+<div id="ref-R-bookdown">
+<p>Xie, Yihui. 2018. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</p>
+</div>
+<div id="ref-xie2015">
+<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-and-variable.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/raheems/asds_bn/edit/master/01-datascience.Rmd",
+"text": "Edit"
+},
+"download": ["asdsbook.pdf", "asdsbook.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
