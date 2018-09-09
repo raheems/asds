@@ -30,7 +30,26 @@ df <- df %>% select(-X__6)
 # Remove all rows with all NAs
 df <- df[!apply(is.na(df), 1, all),]
 
+# Cleaning the data
+names(df)
 
-# Add  new column to indicate year
-df$year = 2017
+dfw <- df %>%
+  select(-`Name of University`, `Working Status`) %>%
+  mutate(
+    year = 2017
+  ) %>%
+  rename(
+    id = Sl.,
+    Faculty_Name = `Teacher Name`,
+    Faculty = `Faculty/ School`,
+    Appointment = `Appointment Type`,
+    Highest_Degree = `Higher Education`,
+    Year = year
+  ) %>%
+
+
 dim(df)
+names(df)
+
+# Save the file
+write_excel_csv(df, "du_faculty_2017.csv")
