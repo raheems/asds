@@ -1,6 +1,7 @@
 
 # Sun Sep  9 10:09:02 2018 ------------------------------
 
+library(tidyverse)
 
 fpath = "/Users/enayetraheem/Dropbox/MyBooks/AppliedStatDataScience/"
 fname = "data-resource_2018_08_06_Detail Information of Teacher_DU_Working.xlsx"
@@ -33,8 +34,8 @@ df <- df[!apply(is.na(df), 1, all),]
 # Cleaning the data
 names(df)
 
-dfw <- df %>%
-  select(-`Name of University`, `Working Status`) %>%
+df <- df %>%
+  select(-`Name of University`, -`Working Status`) %>%
   mutate(
     year = 2017
   ) %>%
@@ -46,10 +47,25 @@ dfw <- df %>%
     Highest_Degree = `Higher Education`,
     Year = year
   ) %>%
+  mutate(
+    Faculty = str_trim(str_replace(Faculty, "Faculty of", "")),
+    Faculty = str_trim(str_replace(Faculty, "&", "and")),
+    Department = str_trim(str_replace(Department, "Department of", "")),
+    is_phd = ifelse(Highest_Degree == "PhD", "Yes",
+                    ifelse(Highest_Degree == "Not Available", NA, "No")),
+    # reorder factor variable
+    is_phd = factor(is_phd, levels = c("Yes", "No")),
 
+    # Reorder Designation variable
+    Designation = fct_relevel(Designation, "Professor", "Associate Professor",
+                              "Assistant Professor", "Lecturer", "Others")
+
+  )
 
 dim(df)
 names(df)
 
 # Save the file
 write_excel_csv(df, "du_faculty_2017.csv")
+
+#

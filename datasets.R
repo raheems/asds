@@ -1,5 +1,6 @@
 # Sat Sep 01 07:53:36 2018 ------------------------------
 
+require(ggplot2)
 # Generate the Facebook Like data
 library(truncnorm)
 n = 30; avg = 50; stdev = 15;
@@ -27,7 +28,6 @@ usage = round(rlnorm(n, mean = avg, sd = stdev), digits = 2)
 sex = sample(c("Male", "Female"),size = n, replace = T)
 internet_usage = data.frame(dates, days, sex, usage)
 
-library(ggplot2)
 # Basic box plot
 p <- ggplot(internet_usage, aes(x = as.factor(days), y = usage)) +
   geom_boxplot() +
@@ -40,12 +40,16 @@ p
 library(tidyverse)
 fname = "annual_expenditure_per_student_2018.xlsx"
 
-df <- readxl::read_xlsx(fname, sheet = 1, range = "B9:T24", col_names = F)
+# df <- readxl::read_xlsx(fname, sheet = 1, range = "B9:S24", col_names = F)
+
+df <- openxlsx::read.xlsx(fname, sheet = 1, startRow=9, colNames=FALSE)
+
 for (i in 2:9) {
-  df0 <- readxl::read_xlsx(fname, sheet = i, range = "B9:T24", col_names = F)
+  df0 <- openxlsx::read.xlsx(fname, sheet = i, startRow=9, colNames=FALSE)
   df <- rbind(df, df0)
 }
 
+dim(df)
 head(df)
 
 # Remove all columns with NA
@@ -53,17 +57,17 @@ df <- df %>%
   discard(~all(is.na(.x))) %>%
   map_df(~.x)
 
-# Drop col X__10
-
+names(df)
+# Drop col X7, X14, X15
 df <- df %>%
-  select(- X__10)
+  select(- c(X7, X14, X15))
 
 # Remove all rows with all NAs
 df <- df[!apply(is.na(df), 1, all),]
 
-# Drop the row with NA
+# Drop the row with NA for column X1
 df <- df %>%
-  filter(!is.na(X__1 ))
+  filter(!is.na(X1 ))
 
 dim(df)
 
