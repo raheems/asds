@@ -14,6 +14,9 @@
 *.sty
 *.bib
 *.clo
+*.sh
+
+.git/
 
 _publish.R
 _bookdown_files
